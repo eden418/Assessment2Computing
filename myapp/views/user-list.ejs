@@ -44,10 +44,10 @@
         %>
         <tr>
             <td><%=i; %></td>
-            <td><%=data.Name %></td>
-            <td><%=data.Job %></td>
-            <td><a href="/user/edit/<%=data.IDEmployee%>">Edit</a></td>
-            <td><a href="/user/delete/<%=data.IDEmployee%>">Delete</a></td>
+            <td><%=data.Email %></td>
+            <td><%=data.Song %></td>
+            <td><a href="/user/edit/<%=data.ID%>">Edit</a></td>
+            <td><a href="/user/delete/<%=data.ID%>">Delete</a></td>
         </tr>
         <%  i++; }) %>
         <% } else{ %>

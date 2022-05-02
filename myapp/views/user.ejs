@@ -46,11 +46,11 @@ button[type=submit]:hover {
   <label>Edition Format</label>
   
   
-    <form action="<%=(typeof editData!='undefined')?'/user/edit/'+editData.IDEmployee:'/user/create'%>" method="POST"" method="POST">
+    <form action="<%=(typeof editData!='undefined')?'/user/edit/'+editData.ID:'/user/create'%>" method="POST"" method="POST">
       <label>Email</label>  
-        <input type="text" placeholder="Email" name="Name" required value="<%=(typeof editData!='undefined')? editData.Name:''%>">
+        <input type="text" placeholder="Email" name="Email" required value="<%=(typeof editData!='undefined')? editData.Email:''%>">
           <label>Favorite Song</label>
-          <input type="text" placeholder="Song" name="Job" required value="<%=(typeof editData!='undefined')? editData.Job:''%>">
+          <input type="text" placeholder="Song" name="Song" required value="<%=(typeof editData!='undefined')? editData.Song:''%>">
           <button type="submit">Send</button>
         </div>
 </div>

@@ -21,7 +21,7 @@ router.get('/user-list', function(req, res, next) {
    //       if (err) {
    //         console.error(err.message);
    //       }
-   //       console.log(data.Name + "\t" + data.Job);
+   //       console.log(data.Email + "\t" + data.Song);
    //       res.render('user-list', { title: 'Employee List', userData: data});
    //     });
    //   });
@@ -68,13 +68,13 @@ router.get('/user-list', function(req, res, next) {
     var id= req.params.id;
       var updateData=req.body;
     console.log('body is ',req.body);
-    console.log('Name body is ',req.body.Name);
-    console.log('Job body is ',req.body.Job);
+    console.log('Email body is ',req.body.Email);
+    console.log('Song body is ',req.body.Song);
     console.log('ID  ',req);
-    var Job = req.body.Job; 
-    var Name = req.body.Name;
+    var Song = req.body.Song; 
+    var Email = req.body.Email;
     var sql = `UPDATE Songs SET ? WHERE ID = ?`;
-    var sql = `UPDATE Songs SET Name= '${Name}', Job='${Job}' WHERE  ID= '${id}' `; 
+    var sql = `UPDATE Songs SET Email= '${Email}', Song='${Song}' WHERE  ID= '${id}' `; 
     console.log('Querys : '+sql);
       console.log("****POST***");
       db.run(sql,  function (err, data) {
@@ -99,12 +99,12 @@ router.get('/user-list', function(req, res, next) {
 
     //const userDetails=req.body;
     console.log('body is ',req.body);
-    console.log('Name body is ',req.body.Name);
-    console.log('Job body is ',req.body.Job);
-    var empleo = req.body.Job; 
-    var nombre = req.body.Name;
+    console.log('Email body is ',req.body.Email);
+    console.log('Song body is ',req.body.Song);
+    var empleo = req.body.Song; 
+    var nombre = req.body.Email;
 
-    var sql = `INSERT INTO Songs (Name, Job) VALUES ('${Name}','${Job}') `; 
+    var sql = `INSERT INTO Songs (Email, Song) VALUES ('${Email}','${Song}') `; 
     console.log('Query : '+sql);
     db.run(sql,  function (err, data) {
         if (err) throw err;
