@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" 
+type="image/png" 
+href="http://example.com/myicon.png">    
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;}
+.user-detail {
+    height: 100vh;
+    border: 2px solid #f1f1f1;
+    padding: 16px;
+    background-color: white;
+    width: 30%;}
+input{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;}
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;}
+button[type=submit] {
+    background-color: #434140;
+    color: #ffffff;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-size: 20px;}
+label{
+  font-size: 18px;;}
+button[type=submit]:hover {
+  background-color:#3d3c3c;}
+</style>
+</head>
+<body>
+<!--====form section start====-->
+<div class="user-detail">
+  <label>Edition Format</label>
+  
+  
+    <form action="<%=(typeof editData!='undefined')?'/user/edit/'+editData.IDEmployee:'/user/create'%>" method="POST"" method="POST">
+      <label>Employee Name</label>  
+        <input type="text" placeholder="Name" name="Name" required value="<%=(typeof editData!='undefined')? editData.Name:''%>">
+          <label>Current Job</label>
+          <input type="text" placeholder="Job" name="Job" required value="<%=(typeof editData!='undefined')? editData.Job:''%>">
+          <button type="submit">Send</button>
+        </div>
+</div>
+<!--====form section start====-->
+</body>
+</html>
