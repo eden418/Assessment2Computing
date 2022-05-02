@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 
 // Create the object to the database.
-let db = new sqlite3.Database('DBEmployees.db' , (err) => {
+let db = new sqlite3.Database('DbSongs.db' , (err) => {
   if (err) {
     console.error(err.message);
   }

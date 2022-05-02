@@ -13,7 +13,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: true })
 // another routes also appear here
 // this script to fetch data from MySQL databse table
 router.get('/user-list', function(req, res, next) {
-    var sql='SELECT * FROM Employees';
+    var sql='SELECT * FROM Songs';
 
    
    // db.serialize(() => {
@@ -42,7 +42,7 @@ router.get('/user-list', function(req, res, next) {
    //Erase data
    router.get('/delete/:id', function(req, res, next) {
    var id= req.params.id;
-    var sql = 'DELETE FROM Employees WHERE IDEmployee = ?';
+    var sql = 'DELETE FROM Songs WHERE ID = ?';
     db.run(sql, [id], function (err, data) {
     if (err) throw err;
     console.log(" record(s) updated");
@@ -54,7 +54,7 @@ router.get('/user-list', function(req, res, next) {
 
   router.get('/edit/:id', function(req, res, next) {
     var UserId= req.params.id;
-    var sql=`SELECT * FROM Employees WHERE IDEmployee=${UserId}`;
+    var sql=`SELECT * FROM Songs WHERE ID=${UserId}`;
     console.log("****GET***");
     console.log("sql : "+ sql);
     db.all(sql,function(err,data,fields){
@@ -73,8 +73,8 @@ router.get('/user-list', function(req, res, next) {
     console.log('ID  ',req);
     var Job = req.body.Job; 
     var Name = req.body.Name;
-    var sql = `UPDATE Employees SET ? WHERE IDEmployee = ?`;
-    var sql = `UPDATE Employees SET Name= '${Name}', Job='${Job}' WHERE  IDEmployee= '${id}' `; 
+    var sql = `UPDATE Songs SET ? WHERE ID = ?`;
+    var sql = `UPDATE Songs SET Name= '${Name}', Job='${Job}' WHERE  ID= '${id}' `; 
     console.log('Querys : '+sql);
       console.log("****POST***");
       db.run(sql,  function (err, data) {
@@ -104,7 +104,7 @@ router.get('/user-list', function(req, res, next) {
     var empleo = req.body.Job; 
     var nombre = req.body.Name;
 
-    var sql = `INSERT INTO Employees (Name, Job) VALUES ('${Name}','${Job}') `; 
+    var sql = `INSERT INTO Songs (Name, Job) VALUES ('${Name}','${Job}') `; 
     console.log('Query : '+sql);
     db.run(sql,  function (err, data) {
         if (err) throw err;
